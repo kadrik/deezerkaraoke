@@ -10,13 +10,13 @@ function getTrackLyrics(title, artist)
 	       data :{
 		   apikey: API_KEY,
 		       format: "jsonp",
-		       q_track: name,
+		       q_track: title,
 		       q_artist: artist,
 		       f_subtitle_length:300,
 		       f_subtitle_length_max_deviation: 500,
 		       subtitle_format:"mxm"
 	     }, 
-	    success:function( data ) {
+	    success:function(data) {
 		   lyrics = data;
 		   $("#debug").append(data);
 	       },
@@ -29,10 +29,12 @@ function getTrackLyrics(title, artist)
 
 function getWholeLyrics()
 {
- 
+    alert(lyrics.body);
 }
 
 
 function getLyricsWithTime(time)
 {
+
 }
+
