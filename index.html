@@ -1,6 +1,6 @@
 <html>
 <head>
-<title> DeezerKaraoke </title>
+<title> Karaoke </title>
 
 <script src="lyrics.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  
@@ -8,13 +8,16 @@
 
 </head>
 <body>
-<h1> DeezerKaraoke </h1>
+<h1> Karaoke </h1>
 
 <script>
 console.log("START Karaoke");
-getTrackLyrics("Help","Beatles");
-getTrackLyrics("Not Afraid","Eminem");
-getTrackLyrics("Get Lucky","Daft Punk");
+lyrics = getTrackLyrics("Help","Beatles");
+console.log("current track lyrics", lyrics);
+lyrics = getTrackLyrics("Not Afraid","Eminem");
+console.log("current track lyrics", lyrics);
+lyrics = getTrackLyrics("Get Lucky","Daft Punk");
+console.log("current track lyrics", lyrics);
 
 DZ.init({
 	appId  : '116247',
@@ -26,8 +29,7 @@ DZ.ready(function() {
 		title = track.track.title;
 		artist = track.track.artist.name;
 		$("#lyrics").html(title +" <i>By</i> "+ artist);
-		getTrackLyrics(title,artist);
-		
+		lyrics = getTrackLyrics(title,artist);
 	});
 });
 console.log("END Karaoke");
