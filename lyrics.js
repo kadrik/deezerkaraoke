@@ -19,17 +19,18 @@ function getTrackLyrics(title, artist)
 	    success:function(data) {
 		   if (data.message.body == null) {
 			//Track not found, body is null
-			console.log("Track not found, body is null");
+			console.log("Track "+ title + " " + artist + " not found, body is null");
+			lyrics = null;
    			}
 		   else {
 			//Found the track, body not null
 			lyrics = JSON.parse(data.message.body.subtitle.subtitle_body);
-			console.log("Track Found", lyrics);
+			console.log("Track "+ title + " " + artist + " FOUND");
 			}
-		   $("#debug").append(data);
+		   //$("#debug").append(data);
 	     },
 	   error:function (data) {
-		   $("#debug").append(data);
+		   //$("#debug").append(data);
 	     }
 	  });
 	console.log("current track lyrics", lyrics);
