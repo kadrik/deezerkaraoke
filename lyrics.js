@@ -17,7 +17,15 @@ function getTrackLyrics(title, artist)
 		       subtitle_format:"mxm"
 	     }, 
 	    success:function(data) {
-		   lyrics = data;
+		   if (data.message.body == null) {
+			//Track not found, body is null
+			console.log("Track not found, body is null");
+   			}
+		   else {
+			//Found the track, body not null
+			lyrics = data.message.body.subtitle.subtitle_body;
+			console.log("Track Found", lyrics);
+			}
 		   $("#debug").append(data);
 	     },
 	   error:function (data) {
@@ -26,7 +34,6 @@ function getTrackLyrics(title, artist)
 	  });
 	console.log("current track lyrics", lyrics);
 }
-
 
 function getWholeLyrics()
 {
