@@ -10,6 +10,7 @@
 <h1> DeezerKaraoke </h1>
 
 <script>
+console.log("START Karaoke");
 DZ.init({
 	appId  : '116247',
 	channelUrl : 'http://kadrik.github.io/deezerkaraoke/'
@@ -17,6 +18,7 @@ DZ.init({
 DZ.Event.subscribe('current_track', function(track, evt_name){
 	console.log("current track object", track);
 });
+console.log("END Karaoke");
 </script>
 
 </body>
