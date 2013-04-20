@@ -2,10 +2,11 @@
 var API_KEY="82be3ea3f79ea404d45f47607c103eff";
 var lyrics = new Array();
 
-function getTrackLyrics(title, artist)
+function getTrackLyrics(title, artist, handlerloaded)
 {
     $.ajax({
 	       dataType:"jsonp",
+	       async: false,
 	       url :"http://api.musixmatch.com/ws/1.1/matcher.subtitle.get",
 	       data :{
 		   apikey: API_KEY,
@@ -25,22 +26,34 @@ function getTrackLyrics(title, artist)
 		   else {
 			//Found the track, body not null
 			lyrics = JSON.parse(data.message.body.subtitle.subtitle_body);
+			console.log("current track lyrics", lyrics);
 			console.log("Track "+ title + " " + artist + " FOUND");
 			}
 		   //$("#debug").append(data);
 	     },
 	   error:function (data) {
-			console.log("ERROR ", data);
+		console.log("ERROR ", data);
 		   //$("#debug").append(data);
-	     }
+	    },
+	   complete:function (data) {
+		handlerloaded();
+	    }
+
 	  });
-	console.log("current track lyrics", lyrics);
-	return lyrics;
+    
+    //console.log("current track lyrics", lyrics);
+    //return lyrics;
 }
 
 function getWholeLyrics()
 {
-    alert(lyrics.body);
+    var res = "";
+    for (var i = 0; i < lyrics.length; i++) {
+	var part = lyrics[i];
+	res = res+"<br>"+part.text;
+
+    }
+    return res;
 }
 
 
