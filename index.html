@@ -73,20 +73,22 @@ function play(trackId) {
 	});	
 }
 
-
+var currentText = "";
 function displayLyrics()
 {
-
-   if ($("#dynamiclyrics2").html() == "")
-   {
-     $("#dynamiclyrics2").html(getLyricsWithTime(karaokeCurrentTime));
-   }
-   else
-   {
-     $("#dynamiclyrics1").html(getLyricsWithTime(karaokeCurrentTime));
-     $("#dynamiclyrics2").html("");
-   }
    karaokeCurrentTime+=0.5;
+   tmp = getLyricsWithTime(karaokeCurrentTime);
+   if (currentText != tmp)
+      if ($("#dynamiclyrics2").html() == "")
+      {
+        $("#dynamiclyrics2").html(getLyricsWithTime(karaokeCurrentTime));
+      }
+      else
+      {
+        $("#dynamiclyrics1").html(getLyricsWithTime(karaokeCurrentTime));
+        $("#dynamiclyrics2").html("");
+      }
+
    if (karaokePlaying)
      setTimeout(displayLyrics, 500);
 }
