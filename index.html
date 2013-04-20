@@ -88,7 +88,7 @@ function displayLyrics()
         $("#dynamiclyrics1").html(getLyricsWithTime(karaokeCurrentTime));
         $("#dynamiclyrics2").html("");
       }
-
+   currentText = tmp;
    if (karaokePlaying)
      setTimeout(displayLyrics, 500);
 }
