@@ -14,7 +14,11 @@
 <body>
 <h1> DeezerKaraoke </h1>
 
-
+<script>
+DZ.Event.subscribe('current_track', function(track, evt_name){
+	console.log("current track object", track);
+});
+</script>
 
 </body>
 </html>
