@@ -19,6 +19,7 @@ DZ.init({
 DZ.ready(function() {
 	DZ.Event.subscribe('current_track', function(track, evt_name){
 		console.log("current track object", track);
+		$("#lyrics").html(track.track.title)
 	});
 });
 console.log("END Karaoke");
