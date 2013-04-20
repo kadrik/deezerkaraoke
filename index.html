@@ -26,14 +26,6 @@ console.log("START Karaoke");
 var playing = 0;
 var currentTime = 0;
 
-function displayLyrics()
-{
-   currentTime+=0.5;
-   $("#dynamiclyrics").html(getLyricsWithTime(currentTime));
-   if (playing)
-     setTimeout(displayLyrics, 500);
-}
-
 
 DZ.init({
 	appId  : '116247',
@@ -58,11 +50,7 @@ DZ.ready(function() {
 	});
         DZ.Event.subscribe('player_play', function(args, evt_name){
            setTimeout(displayLyrics, 500);
-
         });
-
-
-
 });
 
 
@@ -71,6 +59,17 @@ function play(trackId) {
 		console.log("track list", response.tracks);
 	});	
 }
+
+
+function displayLyrics()
+{
+   currentTime+=0.5;
+   $("#dynamiclyrics").html(getLyricsWithTime(currentTime));
+   if (playing)
+     setTimeout(displayLyrics, 500);
+}
+
+
 
 console.log("END Karaoke");
 
