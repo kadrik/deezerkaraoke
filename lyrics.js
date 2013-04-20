@@ -1,6 +1,6 @@
 
 var API_KEY="82be3ea3f79ea404d45f47607c103eff";
-//var lyrics = new Array();
+var lyrics = new Array();
 
 function getTrackLyrics(title, artist)
 {
@@ -30,6 +30,7 @@ function getTrackLyrics(title, artist)
 		   //$("#debug").append(data);
 	     },
 	   error:function (data) {
+			console.log("ERROR ", data);
 		   //$("#debug").append(data);
 	     }
 	  });
