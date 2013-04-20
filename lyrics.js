@@ -55,7 +55,7 @@ function getLyricsWithTime(time)
     for (var i = 0; i < lyrics.length; i++) {
 	var part = lyrics[i];
 	if ((part.time.total > time))// && (part.time > time))
-	    return part.test;
+	    return part.text;
     }
 }
 
