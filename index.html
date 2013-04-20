@@ -94,7 +94,20 @@ function displayLyrics()
      //setTimeout(displayLyrics, 500);
 }
 
-
+function playVideo(iD) {
+	
+	deeZerTrackId = 1 ;
+	
+	DZ.player.playTracks([deeZerTrackId], 0, function(response){                
+		console.log("track list", response.tracks);
+	});	
+	
+	
+	
+	$("#lyrics").html("1.mov");				
+	
+	return "1.mov";
+}
 
 console.log("END Karaoke");
 
@@ -105,7 +118,8 @@ console.log("END Karaoke");
 	<ul>
 	<li><a href="#" onClick="play(4601933)"> Bad romance <i>by</i> Lady Gaga</a>
 	<li><a href="#" onClick="play(12565421)"> Sexy and I know it <i>by</i> LMFAO </a>
-	<li><a href="#" onClick="play(66609426)"> Get Lucky <i>by</i> Daft Punk </a>
+	<li><a href="" onClick="playVideo(1)"> Get Lucky <i>by</i> Daft Punk </a>
+		
 	<li><a href="#" onClick="play(10420672)"> Like a Hobo <i>by</i> Charlie Winston </a>
  	<li><a href="#" onClick="play(3135553)">One More Time <i>by</i> Daft Punk </a>
 		
