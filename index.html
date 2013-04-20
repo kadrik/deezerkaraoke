@@ -12,6 +12,8 @@
 
 <script>
 console.log("START Karaoke");
+getTrackLyrics("Help","Beatles");
+
 DZ.init({
 	appId  : '116247',
 	channelUrl : 'http://kadrik.github.io/deezerkaraoke/'
@@ -19,6 +21,11 @@ DZ.init({
 DZ.ready(function() {
 	DZ.Event.subscribe('current_track', function(track, evt_name){
 		console.log("current track object", track);
+		title = track.track.title;
+		artist = track.track.artist.name;
+		$("#lyrics").html(title +" <i>By</i> "+ artist);
+		getTrackLyrics(title,artist);
+		
 	});
 });
 console.log("END Karaoke");
