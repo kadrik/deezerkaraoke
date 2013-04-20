@@ -65,8 +65,8 @@ function play(trackId) {
 
 function displayLyrics()
 {
-   karaokeCurrentTime+=0.5;
    $("#dynamiclyrics").html(getLyricsWithTime(karaokeCurrentTime));
+   karaokeCurrentTime+=0.5;
    if (karaokePlaying)
      setTimeout(displayLyrics, 500);
 }
