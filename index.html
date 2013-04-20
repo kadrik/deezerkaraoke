@@ -7,6 +7,12 @@
 <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
 
 </head>
+
+<style>
+#trackLinks{
+	float:right;
+}
+</style>
 <body>
 <h1> Karaoke </h1>
 
@@ -24,9 +30,11 @@ DZ.ready(function() {
 		console.log("current track object", track);
 		title = track.track.title;
 		artist = track.track.artist.name;
-		$("#lyrics").html(title +" <i>By</i> "+ artist);
-		lyrics = getTrackLyrics(title,artist);
-		console.log("current track lyrics", lyrics);
+		$("#currentTrack").html(title +" <i>By</i> "+ artist);
+		lyrics = getTrackLyrics(title,artist, function() {
+			console.log("current track lyrics", lyrics);
+			$("#lyrics").html(getWholeLyrics(lyrics));						
+		});
 	});
 });
 
@@ -42,10 +50,13 @@ console.log("END Karaoke");
 </script>
 
 
+<div id="currentTrack">
+</div>
+
 <div id="lyrics">
 </div>
 
-<div id="track links">
+<div id="trackLinks">
 	<ul>
 	<li><a href="#" onClick="play(4601933)"> Bad romance <i>by</i> Lady Gaga</a>
 	<li><a href="#" onClick="play(66609426)"> Get Lucky <i>by</i> Daft Punk </a>
