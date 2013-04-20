@@ -23,8 +23,8 @@ console.log("START Karaoke");
 //lyrics = getTrackLyrics("Help","Beatles");
 //console.log("current track lyrics", lyrics);
 
-var playing = 0;
-var currentTime = 0;
+var karaokePlaying = 0;
+var karaokeCurrentTime = 0;
 
 
 DZ.init({
@@ -48,9 +48,11 @@ DZ.ready(function() {
 			}
 		});
 	});
-        DZ.Event.subscribe('player_play', function(args, evt_name){
-           setTimeout(displayLyrics, 500);
-        });
+        //DZ.Event.subscribe('player_play', function(args, evt_name){
+        //   karaokePlaying = 1;
+        //   karaokeCurrentTime = 0;
+        //   setTimeout(displayLyrics, 500);
+        //});
 });
 
 
@@ -63,9 +65,9 @@ function play(trackId) {
 
 function displayLyrics()
 {
-   currentTime+=0.5;
-   $("#dynamiclyrics").html(getLyricsWithTime(currentTime));
-   if (playing)
+   karaokeCurrentTime+=0.5;
+   $("#dynamiclyrics").html(getLyricsWithTime(karaokeCurrentTime));
+   if (karaokePlaying)
      setTimeout(displayLyrics, 500);
 }
 
