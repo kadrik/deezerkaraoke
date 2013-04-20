@@ -50,6 +50,7 @@ DZ.ready(function() {
 	});
         DZ.Event.subscribe('player_play', function(args, evt_name){
            karaokePlaying = 1;
+           alert(args["currentTime"]);
            karaokeCurrentTime = 0;
            setTimeout(displayLyrics, 500);
         });
@@ -58,6 +59,7 @@ DZ.ready(function() {
 
 function play(trackId) {
 	DZ.player.playTracks([trackId], 0, function(response){
+                
 		console.log("track list", response.tracks);
 	});	
 }
