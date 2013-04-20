@@ -1,6 +1,6 @@
 
 var API_KEY="82be3ea3f79ea404d45f47607c103eff";
-var lyrics = new Array();
+//var lyrics = new Array();
 
 function getTrackLyrics(title, artist)
 {
@@ -23,7 +23,7 @@ function getTrackLyrics(title, artist)
    			}
 		   else {
 			//Found the track, body not null
-			lyrics = data.message.body.subtitle.subtitle_body;
+			lyrics = JSON.parse(data.message.body.subtitle.subtitle_body);
 			console.log("Track Found", lyrics);
 			}
 		   $("#debug").append(data);
@@ -33,6 +33,7 @@ function getTrackLyrics(title, artist)
 	     }
 	  });
 	console.log("current track lyrics", lyrics);
+	return lyrics;
 }
 
 function getWholeLyrics()
