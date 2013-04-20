@@ -51,13 +51,14 @@ DZ.ready(function() {
         DZ.Event.subscribe('player_play', function(args, evt_name){
            karaokePlaying = 1;
            karaokeCurrentTime = 0;
-           setTimeout(displayLyrics, 500);
-           $("#dynamiclyrics2").html("");           
-           $("#dynamiclyrics1").html("");
+           //setTimeout(displayLyrics, 500);
+           //$("#dynamiclyrics2").html("");           
+           //$("#dynamiclyrics1").html("");
         });
         DZ.Event.subscribe('player_position', function(args, evt_name){
         console.log("position changed", args[0]);
            karaokeCurrentTime = args[0];
+           displayLyrics();
         });
         DZ.Event.subscribe('player_paused', function(args, evt_name){
            karaokePlaying = 0;
@@ -89,8 +90,8 @@ function displayLyrics()
         $("#dynamiclyrics2").html("");
       }
    currentText = tmp;
-   if (karaokePlaying)
-     setTimeout(displayLyrics, 500);
+   //if (karaokePlaying)
+     //setTimeout(displayLyrics, 500);
 }
 
 
