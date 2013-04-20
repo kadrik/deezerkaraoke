@@ -50,10 +50,17 @@ DZ.ready(function() {
 	});
         DZ.Event.subscribe('player_play', function(args, evt_name){
            karaokePlaying = 1;
-           alert(args["currentTime"]);
            karaokeCurrentTime = 0;
            setTimeout(displayLyrics, 500);
         });
+        DZ.Event.subscribe('player_position', function(args, evt_name){
+           alert(args['currentTime']);
+           //karaokeCurrentTime = 0;
+        });
+        DZ.Event.subscribe('player_paused', function(args, evt_name){
+           karaokePlaying = 0;
+        });
+
 });
 
 
