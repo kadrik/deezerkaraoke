@@ -19,10 +19,10 @@ function getTrackLyrics(title, artist)
 	    success:function( data ) {
 		   lyrics = data;
 		   $("#debug").append(data);
-	       },
+	     },
 	   error:function (data) {
 		   $("#debug").append(data);
-	       }
+	     }
 	  });
 	console.log("current track lyrics", lyrics);
 }
