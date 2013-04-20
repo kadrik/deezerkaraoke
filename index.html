@@ -12,12 +12,8 @@
 
 <script>
 console.log("START Karaoke");
-lyrics = getTrackLyrics("Help","Beatles");
-console.log("current track lyrics", lyrics);
-lyrics = getTrackLyrics("Not Afraid","Eminem");
-console.log("current track lyrics", lyrics);
-lyrics = getTrackLyrics("Get Lucky","Daft Punk");
-console.log("current track lyrics", lyrics);
+//lyrics = getTrackLyrics("Help","Beatles");
+//console.log("current track lyrics", lyrics);
 
 DZ.init({
 	appId  : '116247',
@@ -30,6 +26,7 @@ DZ.ready(function() {
 		artist = track.track.artist.name;
 		$("#lyrics").html(title +" <i>By</i> "+ artist);
 		lyrics = getTrackLyrics(title,artist);
+		console.log("current track lyrics", lyrics);
 	});
 });
 console.log("END Karaoke");
