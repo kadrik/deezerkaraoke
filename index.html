@@ -11,6 +11,8 @@
 <style>
 #trackLinks{
 	float:right;
+	right: 20px;
+	top: 20px;
 }
 </style>
 <body>
@@ -30,7 +32,8 @@ DZ.ready(function() {
 		console.log("current track object", track);
 		title = track.track.title;
 		artist = track.track.artist.name;
-		$("#currentTrack").html(title +" <i>By</i> "+ artist);
+		duration = track.track.duration;
+		$("#currentTrack").html(title +" <i>By</i> "+ artist + " " + duration);
 		lyrics = getTrackLyrics(title,artist, function() {
 			console.log("current track lyrics", lyrics);
 			$("#lyrics").html(getWholeLyrics(lyrics));						
@@ -50,18 +53,19 @@ console.log("END Karaoke");
 </script>
 
 
-<div id="currentTrack">
-</div>
-
-<div id="lyrics">
-</div>
-
 <div id="trackLinks">
 	<ul>
 	<li><a href="#" onClick="play(4601933)"> Bad romance <i>by</i> Lady Gaga</a>
 	<li><a href="#" onClick="play(66609426)"> Get Lucky <i>by</i> Daft Punk </a>
 	</ul>
 </div>
+
+<div id="currentTrack">
+</div>
+
+<div id="lyrics">
+</div>
+
 
 <div id="debug">
 </div>
