@@ -1,6 +1,6 @@
 
 var API_KEY="82be3ea3f79ea404d45f47607c103eff";
-var lyrics = new Array();
+	var lyrics = new Array();
 
 function getTrackLyrics(title, artist, handlerloaded)
 {
@@ -13,8 +13,8 @@ function getTrackLyrics(title, artist, handlerloaded)
 		       format: "jsonp",
 		       q_track: title,
 		       q_artist: artist,
-		       f_subtitle_length:300,
-		       f_subtitle_length_max_deviation: 500,
+		       //f_subtitle_length:300,
+		       //f_subtitle_length_max_deviation: 500,
 		       subtitle_format:"mxm"
 	     }, 
 	    success:function(data) {
@@ -40,9 +40,6 @@ function getTrackLyrics(title, artist, handlerloaded)
 	    }
 
 	  });
-    
-    //console.log("current track lyrics", lyrics);
-    //return lyrics;
 }
 
 function getWholeLyrics()
