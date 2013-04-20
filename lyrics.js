@@ -34,7 +34,6 @@ function getTrackLyrics(title, artist)
 		   //$("#debug").append(data);
 	     }
 	  });
-	console.log("current track lyrics", lyrics);
 	return lyrics;
 }
 
