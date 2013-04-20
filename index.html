@@ -34,9 +34,14 @@ DZ.ready(function() {
 		artist = track.track.artist.name;
 		duration = track.track.duration;
 		$("#currentTrack").html(title +" <i>By</i> "+ artist + " " + duration);
-		lyrics = getTrackLyrics(title,artist, function() {
-			console.log("current track lyrics", lyrics);
-			$("#lyrics").html(getWholeLyrics(lyrics));						
+		lyrics = getTrackLyrics(title, artist, duration, function() {
+			if (lyrics != null) {
+				console.log("current track lyrics", lyrics);
+				$("#lyrics").html(getWholeLyrics(lyrics));
+			}
+			else {
+				$("#lyrics").html("");				
+			}
 		});
 	});
 });
