@@ -54,8 +54,8 @@ DZ.ready(function() {
            setTimeout(displayLyrics, 500);
         });
         DZ.Event.subscribe('player_position', function(args, evt_name){
-           alert(args['currentTime']);
-           karaokeCurrentTime = args['currentTime'];
+        console.log("position changed", args[0]);
+           karaokeCurrentTime = args[0];
         });
         DZ.Event.subscribe('player_paused', function(args, evt_name){
            karaokePlaying = 0;
