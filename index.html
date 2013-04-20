@@ -52,6 +52,8 @@ DZ.ready(function() {
            karaokePlaying = 1;
            karaokeCurrentTime = 0;
            setTimeout(displayLyrics, 500);
+           $("#dynamiclyrics2").html("");           
+           $("#dynamiclyrics1").html("");
         });
         DZ.Event.subscribe('player_position', function(args, evt_name){
         console.log("position changed", args[0]);
@@ -74,7 +76,16 @@ function play(trackId) {
 
 function displayLyrics()
 {
-   $("#dynamiclyrics").html(getLyricsWithTime(karaokeCurrentTime));
+
+   if ($("#dynamiclyrics2").html() == "")
+   {
+     $("#dynamiclyrics2").html(getLyricsWithTime(karaokeCurrentTime));
+   }
+   else
+   {
+     $("#dynamiclyrics1").html(getLyricsWithTime(karaokeCurrentTime));
+     $("#dynamiclyrics2").html(""));
+   }
    karaokeCurrentTime+=0.5;
    if (karaokePlaying)
      setTimeout(displayLyrics, 500);
@@ -98,7 +109,9 @@ console.log("END Karaoke");
 	</ul>
 </div>
 
-<div id="dynamiclyrics">
+<div id="dynamiclyrics1">
+</div>
+<div id="dynamiclyrics2">
 </div>
 
 <br><br>
