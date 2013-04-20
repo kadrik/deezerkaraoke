@@ -30,10 +30,22 @@ DZ.ready(function() {
 	});
 });
 console.log("END Karaoke");
+
+
+function play(trackId) {
+	DZ.player.playTracks([trackId], , 0, function(response){
+		console.log("track list", response.tracks);
+	});	
+}
+
 </script>
 
 
 <div id="lyrics">
+</div>
+
+<div id="track links">
+	<a href="#" onClick="play(912336)">Born This Way <i>by</i> Lady Gaga</a>
 </div>
 
 <div id="debug">
