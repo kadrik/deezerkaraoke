@@ -115,7 +115,7 @@ function displayLyrics()
    tmp = getLyricsWithTime(karaokeCurrentTime);
    if (currentText != tmp)
    {
-	  $("#lyrics").append('<div style="opacity:1; position:absolute;margin-top:60px;" id="lyricsdiv'+currentId+'">'+currentText+'</div>');
+	  $("#lyrics").append('<div style="opacity:1; position:absolute;margin-top:60px; text-align:center; width:480px;" id="lyricsdiv'+currentId+'">'+currentText+'</div>');
 /*
 	$('#lyricsdiv'+currentId).animate({
 		opacity:'1'
@@ -124,8 +124,9 @@ function displayLyrics()
 	  });
 */
 	$('#lyricsdiv'+currentId).animate({
-	    marginTop: '-=50'
+	    marginTop: '-=50px'
 	  }, 5000, function() {
+		$('#lyricsdiv'+currentId).remove();
 	    // Animation complete.
 	  });
 
