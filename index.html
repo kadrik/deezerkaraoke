@@ -14,6 +14,9 @@
 	right: 20px;
 	top: 20px;
 }
+#lyrics{
+	
+}
 </style>
 <body>
 
@@ -40,10 +43,10 @@ DZ.ready(function() {
 		lyrics = getTrackLyrics(title, artist, duration, function() {
 			if (lyrics != null) {
 				console.log("current track lyrics", lyrics);
-				$("#lyrics").html(getWholeLyrics(lyrics));
+				//$("#lyrics").html(getWholeLyrics(lyrics));
 			}
 			else {
-				$("#lyrics").html("");				
+				//$("#lyrics").html("");				
 			}
 		});
 	});
@@ -99,9 +102,8 @@ function playVideo(iD) {
 	
 	DZ.player.playTracks([deeZerTrackId], 0, function(response){                
 		console.log("track list", response.tracks);
-	});
-	
-	$("#lyrics").html("");				
+	});	
+	//$("#lyrics").html("");				
 }
 
 console.log("END Karaoke");
@@ -128,12 +130,13 @@ playVideo(1);
 	  <source src="background.mp4" type='video/mp4'> 
 	</video>
 </div>
-<div id="dynamiclyrics1"></div>
-<div id="dynamiclyrics2"></div>
-<div id="currentTrack"></div>
 
 <div id="lyrics">
+	<div id="dynamiclyrics1"></div>
+	<div id="dynamiclyrics2"></div>
 </div>
+<div id="currentTrack"></div>
+
 
 
 <div id="debug">
