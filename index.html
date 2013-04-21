@@ -9,7 +9,7 @@
 </head>
 
 <style>
-#trackLinks{
+#trackList{
 	float:right;
 	right: 20px;
 	top: 20px;
@@ -99,9 +99,7 @@ function playVideo(iD) {
 	
 	DZ.player.playTracks([deeZerTrackId], 0, function(response){                
 		console.log("track list", response.tracks);
-	});	
-	
-	
+	});
 	
 	$("#lyrics").html("1.avi");				
 	
@@ -117,7 +115,9 @@ playVideo(1);
 	<source src="1.mov">
 </video>
 	
-<div id="trackLinks">
+<div id="trackList">
+	<script src="trackList.js" type="text/javascript"></script>
+
 	<ul>
 	<li><a href="#" onClick="play(4601933)"> Bad romance <i>by</i> Lady Gaga</a>
 	<li><a href="#" onClick="play(12565421)"> Sexy and I know it <i>by</i> LMFAO </a>
@@ -127,8 +127,6 @@ playVideo(1);
 	<li><a href="1.avi"> Void <i>by</i> The Artist huy </a>
 		
 	</ul>
-
-
 	<h1><a href="http://ourdomainname.com"> ourdomainname.com </a></h1>
 </div>
 
@@ -137,6 +135,11 @@ playVideo(1);
 <div id="dynamiclyrics2">
 </div>
 
+<div id=video>
+	<video width="560" height="340" controls>
+	  <source src="background.mp4" type='video/mp4'> 
+	</video>
+</div>
 <br><br>
 
 <div id="currentTrack">
