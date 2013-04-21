@@ -14,8 +14,11 @@
 	float:right;
 	right: 80px;
 	top: 40px;
+	
 }
-
+#trackList a{
+	color: black;
+}
 #lyrics{
 
 }
@@ -107,10 +110,11 @@ function displayLyrics()
 function playVideo(iD) {
 	
 	deeZerTrackId = 1 ;
-	
-	DZ.player.playTracks([deeZerTrackId], 0, function(response){                
-		console.log("track list", response.tracks);
-	});	
+	$("#video").html("<video width='400' autoplay loop><source src='1.avi' type='video/mp4'></video");				
+}
+	//DZ.player.playTracks([deeZerTrackId], 0, function(response){                
+	//	console.log("track list", response.tracks);
+	//});	
 	//$("#lyrics").html("");				
 }
 
