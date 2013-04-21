@@ -118,10 +118,8 @@ function displayLyrics()
 	  $("#lyrics").append('<div id="lyricsdiv'+currentId+'">'+currentText+'</div>');
 	
 	$('#lyricsdiv'+currentId).animate({
-	    opacity: 0.25,
-	    left: '+=50',
-	    height: 'toggle'
-	  }, 500, function() {
+	    margin-top: '+=50',
+	  }, 5000, function() {
 	    // Animation complete.
 	  });
 	
