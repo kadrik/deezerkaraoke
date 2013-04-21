@@ -115,13 +115,13 @@ function displayLyrics()
    tmp = getLyricsWithTime(karaokeCurrentTime);
    if (currentText != tmp)
    {
-	  $("#lyrics").append('<div style="display:none;"  id="lyricsdiv'+currentId+'">'+currentText+'</div>');
+	  $("#lyrics").append('<div id="lyricsdiv'+currentId+'">'+currentText+'</div>');
 	
 	$('#lyricsdiv'+currentId).animate({
 	    opacity: 0.25,
 	    left: '+=50',
 	    height: 'toggle'
-	  }, 5000, function() {
+	  }, 500, function() {
 	    // Animation complete.
 	  });
 	
@@ -177,8 +177,8 @@ playVideo(1);
 	</div>
 
 	<div id="lyrics">
-		<div id="dynamiclyrics1"></div>
-		<div id="dynamiclyrics2"></div>
+		<!--div id="dynamiclyrics1"></div>
+		<div id="dynamiclyrics2"></div-->
 	</div>
 </div>
 
