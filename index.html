@@ -16,7 +16,6 @@
 }
 </style>
 <body>
-<h1> Karaoke </h1>
 
 <script>
 console.log("START Karaoke");
@@ -104,26 +103,33 @@ function playVideo(iD) {
 	
 	
 	
-	$("#lyrics").html("1.mov");				
+	$("#lyrics").html("1.avi");				
 	
-	return "1.mov";
+	return "1.avi";
 }
 
 console.log("END Karaoke");
 playVideo(1);
 </script>
 
-
+<video=1.avi>
+<video width="320" height="240" controls>
+	<source src="1.mov">
+</video>
+	
 <div id="trackLinks">
 	<ul>
 	<li><a href="#" onClick="play(4601933)"> Bad romance <i>by</i> Lady Gaga</a>
 	<li><a href="#" onClick="play(12565421)"> Sexy and I know it <i>by</i> LMFAO </a>
-	<li><a href="" onClick="playVideo(1)"> Get Lucky <i>by</i> Daft Punk </a>
-		
+	<li><a href="#" onClick="playVideo(1)"> Get Lucky <i>by</i> Daft Punk </a>
 	<li><a href="#" onClick="play(10420672)"> Like a Hobo <i>by</i> Charlie Winston </a>
  	<li><a href="#" onClick="play(3135553)">One More Time <i>by</i> Daft Punk </a>
+	<li><a href="1.avi"> Void <i>by</i> The Artist huy </a>
 		
 	</ul>
+
+
+	<h1><a href="http://ourdomainname.com"> ourdomainname.com </a></h1>
 </div>
 
 <div id="dynamiclyrics1">
@@ -142,6 +148,5 @@ playVideo(1);
 
 <div id="debug">
 </div>
-
 </body>
 </html>
