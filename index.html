@@ -15,6 +15,9 @@
 	right: 80px;
 	top: 40px;
 	text-align:left;
+	background-color:white;
+	width:480px;
+	z-index: 18;
 }
 
 #currentTrack {
@@ -70,8 +73,10 @@ DZ.ready(function() {
 		title = track.track.title;
 		artist = track.track.artist.name;
 		duration = track.track.duration;
+		karaokePlaying = 0;
 		$("#currentTrack").html(title +" <i>By</i> "+ artist);
 		lyrics = getTrackLyrics(title, artist, duration, function() {
+			karaokePlaying = 1;
 			if (lyrics != null) {
 				console.log("current track lyrics", lyrics);
 				//$("#lyrics").html(getWholeLyrics(lyrics));
@@ -82,8 +87,7 @@ DZ.ready(function() {
 		});
 	});
         DZ.Event.subscribe('player_play', function(args, evt_name){
-           karaokePlaying = 1;
-           karaokeCurrentTime = 0;
+           	karaokeCurrentTime = 0;
            //setTimeout(displayLyrics, 500);
            //$("#dynamiclyrics2").html("");           
            //$("#dynamiclyrics1").html("");
@@ -94,8 +98,8 @@ DZ.ready(function() {
            displayLyrics();
         });
         DZ.Event.subscribe('player_paused', function(args, evt_name){
-           karaokePlaying = 0;
-        });
+        
+		});
 
 });
 
@@ -116,18 +120,18 @@ function displayLyrics()
    tmp = getLyricsWithTime(karaokeCurrentTime);
    if (currentText != tmp)
    {
-	  $("#lyrics").append('<div style="opacity:1; position:absolute;margin-top:80px; text-align:center; width:1000px; margin-left:-260px; font-size:10px;" id="lyricsdiv'+currentId+'">'+currentText+'</div>');
-/*
+	  $("#lyrics").append('<div style="opacity:0; position:absolute;margin-top:90px; text-align:center; width:1000px; margin-left:-260px; font-size:10px;" id="lyricsdiv'+currentId+'">'+currentText+'</div>');
+
 	$('#lyricsdiv'+currentId).animate({
 		opacity:'1'
 	  }, 1000, function() {
 	    // Animation complete.
 	  });
-*/
+
 	$('#lyricsdiv'+currentId).animate({
 	    marginTop: '-=60px',
 		fontSize: "30px"
-	  }, 4000, function() {
+	  }, 3500, function() {
 		$('#lyricsdiv'+currentdelId).remove();
 		currentdelId++;
 	    // Animation complete.
@@ -145,8 +149,6 @@ function displayLyrics()
       }*/
    }
 	currentText = tmp;
-   //if (karaokePlaying)
-     //setTimeout(displayLyrics, 500);
 }
 
 function playVideo(iD) {
