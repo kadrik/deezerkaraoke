@@ -115,7 +115,20 @@ function displayLyrics()
    tmp = getLyricsWithTime(karaokeCurrentTime);
    if (currentText != tmp)
    {
-	  $("#lyrics").append('<div id="lyricsdiv'+currentId+'">'+currentText+'</div>');
+	  $("#lyrics").append('<div style="opacity:0px" id="lyricsdiv'+currentId+'">'+currentText+'</div>');
+
+	$('#lyricsdiv'+currentId).animate({
+		opacity:'1'
+	  }, 1000, function() {
+	    // Animation complete.
+	  });
+
+	$('#lyricsdiv'+currentId).animate({
+	    top: '+=50'
+	  }, 5000, function() {
+	    // Animation complete.
+	  });
+
 	
 	$('#lyricsdiv'+currentId).animate({
 	    top: '+=50'
