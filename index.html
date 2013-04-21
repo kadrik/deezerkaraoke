@@ -109,6 +109,7 @@ function play(trackId) {
 
 var currentText = "";
 var currentId = 0;
+var currentdelId = 0;
 function displayLyrics()
 {
 //   karaokeCurrentTime+=0.5;
@@ -127,7 +128,8 @@ function displayLyrics()
 	    marginTop: '-=50px',
 		fontSize: "3em"
 	  }, 5000, function() {
-		$('#lyricsdiv'+currentId).remove();
+		$('#lyricsdiv'+currentdelId).remove();
+		currentdelId++;
 	    // Animation complete.
 	  });
 	currentId++;
