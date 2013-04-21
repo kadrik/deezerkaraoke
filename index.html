@@ -47,7 +47,6 @@ a{
 	text-align:center;
 	font-size: 20px;
 	padding:10px;
-
 }
 </style>
 <body>
@@ -109,12 +108,24 @@ function play(trackId) {
 }
 
 var currentText = "";
+var currentId = 0;
 function displayLyrics()
 {
 //   karaokeCurrentTime+=0.5;
    tmp = getLyricsWithTime(karaokeCurrentTime);
    if (currentText != tmp)
-      if ($("#dynamiclyrics2").html() == "")
+   {
+	  $("#lyrics").append('<div style="display:none;"  id="lyricsdiv'+currentId+'">'+currentText+'</div>');
+	
+	$('#lyricsdiv'+currentId).animate({
+	    opacity: 0.25,
+	    left: '+=50',
+	    height: 'toggle'
+	  }, 5000, function() {
+	    // Animation complete.
+	  });
+	
+	/*  if ($("#dynamiclyrics2").html() == "")
       {
         $("#dynamiclyrics2").html(getLyricsWithTime(karaokeCurrentTime));
       }
@@ -122,8 +133,9 @@ function displayLyrics()
       {
         $("#dynamiclyrics1").html(getLyricsWithTime(karaokeCurrentTime));
         $("#dynamiclyrics2").html("");
-      }
-   currentText = tmp;
+      }*/
+   }
+	currentText = tmp;
    //if (karaokePlaying)
      //setTimeout(displayLyrics, 500);
 }
