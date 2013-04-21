@@ -22,11 +22,12 @@ a{
 	text-decoration:none;
 }
 
-#lyrics{
-
+#lyrics {
+	z-index:15;
 }
 
-#video{
+#video {
+   z-index:1;
    float:left;
 }
 
@@ -124,7 +125,7 @@ function playVideo(iD) {
 	//	console.log("track list", response.tracks);
 	//});	
 	//$("#lyrics").html("");				
-}
+//}
 
 console.log("END Karaoke");
 playVideo(1);
