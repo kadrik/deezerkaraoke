@@ -16,12 +16,12 @@
 	top: 40px;
 	text-align:left;
 	background-color:white;
-	width:480px;
 	z-index: 18;
 }
 
 #currentTrack {
 	font-weight: bold;
+	width:480px;
 	margin-bottom:10px;
 }
 a{
@@ -106,6 +106,7 @@ DZ.ready(function() {
 
 
 function play(trackId) {
+	karaokePlaying = 0;
 	DZ.player.playTracks([trackId], 0, function(response){
                 
 		console.log("track list", response.tracks);
@@ -117,6 +118,8 @@ var currentId = 0;
 var currentdelId = 0;
 function displayLyrics()
 {
+	if (karaokePlaying == 0)
+		return;
 //   karaokeCurrentTime+=0.5;
    tmp = getLyricsWithTime(karaokeCurrentTime);
    if (currentText != tmp)
@@ -172,7 +175,8 @@ playVideo(1);
 	<div id="currentTrack"></div>
 	<div id="video">
 		<video width="480" autoplay loop>
-  			<source src="background.mp4" type='video/mp4'> 
+  			<source src="background.mp4" type='video/mp4'>
+			<source src="background2.mp4" type='video/mp4'>
 		</video>
 	</div>	
 	<div id="trackList">
